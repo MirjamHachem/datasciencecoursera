@@ -3,8 +3,13 @@
 # Course participant: Mirjam Hachem
 
 # This is the R Script run_analysis.R
+
 # Find the README here: 
-# Find the codebook here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/Codebook.txt
+# https://github.com/MirjamHachem/datasciencecoursera/blob/master/README%20Getting%20and%20Cleaning%20Data.md
+
+# Find the codebook here: 
+# https://github.com/MirjamHachem/datasciencecoursera/blob/master/Codebook.txt
+
 
 # PLEASE NOTE:
 # From the description of the assignment, it was not clear to me
@@ -131,7 +136,7 @@ write.table(Average_Extract_Set_Tidy, file="TidyDataExtract.txt")
 
 # In the description of the submission, it is asked to use the 
 # write.table() function with row.names=FALSE. When I do this, 
-# The column names are pushed down into the first row of the dataset
+# the column names are pushed down into the first row of the dataset
 # and the variable names are replaced with default names V1, V2, V3 etc.
 # This makes the dataset untidy again. I therefore provide both options.
 
