@@ -4,15 +4,15 @@
 
 # This is the R Script run_analysis.R
 # Find the README here: 
-# Find the codebook here:
+# Find the codebook here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/Codebook.txt
 
+# PLEASE NOTE:
 # From the description of the assignment, it was not clear to me
 # whether the the tasks 3 to 5 have to be executed to the data
 # set created in 1 or the dataset extracted in 2. I therefore
 # applied all the operations to both datasets.
 
 # 0. DATA IMPORT
-
 
 Training_Measurements <- read.table("./UCI HAR Dataset/train/X_train.txt")
 Training_Subjects <- read.table("./UCI HAR Dataset/train/subject_train.txt")
@@ -38,8 +38,7 @@ colnames(Combined_Numbers) = "ActivityNumber"
 Total_Set <- cbind(Combined_Numbers, Combined_Subjects, Combined_Measurements)
 
 
-# 2. EXTRACT THE MEASUREMENTS ON THE MEAN AND THE 
-#    STANDARD DEVIATION FOR EACH MEASUREMENT
+# 2. EXTRACT THE MEASUREMENTS ON THE MEAN AND THE STANDARD DEVIATION FOR EACH MEASUREMENT
 
 Mean <- grep("mean()", names(Total_Set), value=TRUE)
 Mean_Set <- Total_Set[, Mean]
@@ -54,8 +53,7 @@ Subset_Subject_Activity <- Total_Set[, 1:2]
 Combined_Mean_SD_Subject_Activity <- cbind(Subset_Subject_Activity, Combined_Mean_SD)
 
 
-# 3. USE DESCRIPTIVE ACTIVITY NAMES TO NAME THE 
-#    ACTIVITIES IN THE DATA SET
+# 3. USE DESCRIPTIVE ACTIVITY NAMES TO NAME THE ACTIVITIES IN THE DATA SET
 
 # For Total_Set
 colnames(Activity_Names) <- c("ActivityNumber", "ActivityName")
@@ -115,9 +113,8 @@ names(Extract_Set) <- gsub("-", ".", names(Extract_Set))
 names(Extract_Set) <- gsub("[()]", "", names(Extract_Set))
 
 
-# 5. CREATE A SECOND INDEPENDENT TIDY DATASET WITH THE
-#    AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH
-#    SUBJECT
+# 5. CREATE A SECOND INDEPENDENT TIDY DATASET WITH THE AVERAGE OF EACH VARIABLE FOR EACH 
+#    ACTIVITY AND EACH SUBJECT
 
 # Load the plyr package
 library(plyr)
