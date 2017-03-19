@@ -29,9 +29,9 @@ applied all the operations to both datasets.
 
 ## 0. DATA IMPORT
 
-Measurements of the training set:
-original file name: X_train.txt
-object name: Training_Measurements
+Measurements of the training set:  
+original file name: X_train.txt  
+object name: Training_Measurements  
     
     Training_Measurements <- read.table("./UCI HAR Dataset/train/X_train.txt")
 
