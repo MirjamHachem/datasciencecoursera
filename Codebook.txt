@@ -10,7 +10,8 @@ in the file TidyDataExtract.txt
 Find the R script that creates this dataset here: 
 https://github.com/MirjamHachem/datasciencecoursera/blob/master/run_analysis.R
 
-Find the README file for the R script here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/README%20Getting%20and%20Cleaning%20Data.md
+Find the README file for the R script here:
+https://github.com/MirjamHachem/datasciencecoursera/blob/master/README%20Getting%20and%20Cleaning%20Data.md
 
 PLEASE NOTE: 
 From the description of the assignment, it was not clear to me
