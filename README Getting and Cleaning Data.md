@@ -1,12 +1,12 @@
-# Course: Coursera - Data Science Specialization
-### Course project: Getting and Cleaning Data
-### Course participant: Mirjam Hachem
+## Course: Coursera - Data Science Specialization
+#### Course project: Getting and Cleaning Data
+#### Course participant: Mirjam Hachem
 
-## This is the README file for the R script run_analysis.R
-### Find the R script here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/run_analysis.R 
-### Find the codebook here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/Codebook.txt
+### This is the README file for the R script run_analysis.R
+#### Find the R script here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/run_analysis.R 
+#### Find the codebook here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/Codebook.txt
 
-# GET STARTED
+## GET STARTED
 
 #### Download the data set here
 
@@ -19,16 +19,16 @@ Unzip the file on your computer so that the name of the folder is
 "UCI HAR Dataset". Put the folder in the working directory of 
 your R environment.
 
-PLEASE NOTE
+#### PLEASE NOTE
 From the description of the assignment, it was not clear to me
 whether the the tasks 3 to 5 have to be executed to the dataset 
 created in 1 or the dataset extracted in 2. I therefore
 applied all the operations to both datasets.
 
 
-# START WITH THE ANALYSIS HERE
+## START WITH THE ANALYSIS HERE
 
-# 0. DATA IMPORT
+## 0. DATA IMPORT
 
 Measurements of the training set:
 original file name: X_train.txt
@@ -86,7 +86,7 @@ List with parings of measurement numbers and measurement names
     Measurement_Names <- read.table("./UCI HAR Dataset/features.txt")
 
 
-# 1. MERGING THE TRAINING AND THE TEST SET TO CREATE ONE DATASET
+## 1. MERGING THE TRAINING AND THE TEST SET TO CREATE ONE DATASET
 
 Merge the sets containing training and test measurements
 - using rbind() to attach the rows of the test set to the rows of the training set 
@@ -141,8 +141,7 @@ Merge Combined_Measurements, Combined_Subjects, and Combined_Numbers to one data
     Total_Set <- cbind(Combined_Numbers, Combined_Subjects, Combined_Measurements)
 
 
-# 2. EXTRACT THE MEASUREMENTS ON THE MEAN AND THE STANDARD 
-#    DEVIATION FOR EACH MEASUREMENT
+## 2. EXTRACT THE MEASUREMENTS ON THE MEAN AND THE STANDARD DEVIATION FOR EACH MEASUREMENT
 
 IMPORTANT: The columns containing the mean of the 
 measurements have the string "mean()" in their 
@@ -188,8 +187,7 @@ Attach activity and subject numbers to the combined set
     Combined_Mean_SD_Subject_Activity <- cbind(Subset_Subject_Activity, Combined_Mean_SD)
 
 
-# 3. USE DESCRIPTIVE ACTIVITY NAMES TO NAME THE 
-#    ACTIVITIES IN THE DATA SET
+## 3. USE DESCRIPTIVE ACTIVITY NAMES TO NAME THE ACTIVITIES IN THE DATA SET
 
 In Total_Set, the activity numbers are stored in the second column. 
 The pairings of activity numbers and activity names are given in 
@@ -254,7 +252,7 @@ select(), you first have to coerce the invalid variable
 names to valid variable names with make.names(). 
 
 
-# 4. LABEL THE DATA SET WITH DESCRIPTIVE VARIABLE NAMES  
+## 4. LABEL THE DATA SET WITH DESCRIPTIVE VARIABLE NAMES  
 
 BEFORE WE PROCEED:
 
@@ -271,7 +269,7 @@ to see what we need to adjust
     colnames(Complete_Set)
 
 
-### Meaning of partial variable names that can be made more descriptive
+#### Meaning of partial variable names that can be made more descriptive
 
 t = time of measurement
 f = frequency of measurement
@@ -289,7 +287,7 @@ meanFreq = weigted average of the frequence components to obtain a mean frequenc
 bandsEnergy = energy of a frequency interval within the 64 bins of the FFT of each window
 
 
-### Meaning of partial variable names that need not be changed
+#### Meaning of partial variable names that need not be changed
 
 Jerk = sudden movement acceleration
 mean = mean
@@ -305,7 +303,7 @@ skewness = skewness of the frequency domain signal
 kurtosis = kurtosis of the requency domain signal
 angle = angle between two vectors
 
-### ADJUSTING VARIABLE NAMES
+#### ADJUSTING VARIABLE NAMES
 
 Adjust current variable names in Complete_Set to make them descriptive using gsub()
 
@@ -352,8 +350,7 @@ names(Extract_Set) <- gsub("-", ".", names(Extract_Set))
 names(Extract_Set) <- gsub("[()]", "", names(Extract_Set))
 
 
-# 5. CREATE A SECOND INDEPENDENT TIDY DATASET WITH THE AVERAGE 
-#    OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT
+## 5. CREATE A SECOND INDEPENDENT TIDY DATASET WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT
 
 Load the plyr package
 
