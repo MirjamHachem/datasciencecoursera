@@ -8,17 +8,17 @@
 
 ## GET STARTED
 
-#### Download the data set here
+#### Download the data set here:
 
 https://d396qusza40orc.cloudfront.netgetdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-#### Follow these instructions
+#### Follow these instructions:
 
 Unzip the file on your computer so that the name of the folder is
 "UCI HAR Dataset". Put the folder in the working directory of 
 your R environment.
 
-#### PLEASE NOTE
+#### PLEASE NOTE:
 From the description of the assignment, it was not clear to me
 whether the the tasks 3 to 5 have to be executed to the dataset 
 created in 1 or the dataset extracted in 2. I therefore
@@ -143,7 +143,8 @@ Merge Combined_Measurements, Combined_Subjects, and Combined_Numbers to one data
 
 ## 2. EXTRACT THE MEASUREMENTS ON THE MEAN AND THE STANDARD DEVIATION FOR EACH MEASUREMENT
 
-IMPORTANT: The columns containing the mean of the 
+#### IMPORTANT: 
+The columns containing the mean of the 
 measurements have the string "mean()" in their 
 column name. There is also the string "Mean" 
 appearing in certain column names but these refer to
@@ -236,7 +237,7 @@ Change column name back to "ActivityNumber"
     colnames(Combined_Mean_SD_With_Names)[1] <- "ActivityName"
 
 
-PLEASE NOTE: 
+#### PLEASE NOTE: 
 There is usually a more simple and elegant solution
 to this movement operation using the select()
 function from the dplyr package. The code would be:
@@ -376,6 +377,7 @@ Export the datasets into a text file
     write.table(Average_Extract_Set_Tidy, file="TidyDataExtract.txt")
 
 
+#### PLEASE NOTE:
 In the description of the submission, it is asked to use the 
 write.table() function with row.names=FALSE. When I do this, 
 The column names are pushed down into the first row of the dataset
