@@ -1,23 +1,23 @@
 # Course: Coursera - Data Science Specialization
-# Course project: Getting and Cleaning Data
-# Course participant: Mirjam Hachem
+### Course project: Getting and Cleaning Data
+### Course participant: Mirjam Hachem
 
 ## This is the README file for the R script run_analysis.R
-# Find the R script here: 
-# Find the codebook here:
+### Find the R script here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/run_analysis.R 
+### Find the codebook here: https://github.com/MirjamHachem/datasciencecoursera/blob/master/Codebook.txt
 
-## Short overview of the dataset that is used as input for this analysis
-## Read codebook file for an extensive description of the study
+### Short overview of the dataset that is used as input for this analysis
+### Read codebook file for an extensive description of the study
 
 
 # GET STARTED
 
-## Download the data set here
+### Download the data set here
 
 https://d396qusza40orc.cloudfront.net
 getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-## Follow these instructions
+### Follow these instructions
 
 Unzip the file on your computer so that the name of the folder is
 "UCI HAR Dataset". Put the folder in the working directory of 
