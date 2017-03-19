@@ -80,8 +80,8 @@ List with pairings of activity numbers and activity names.
 
 
 List with parings of measurement numbers and measurement names
- - original file name: features.txt
- - object name: Measurement_Names
+- original file name: features.txt
+- object name: Measurement_Names
 
     Measurement_Names <- read.table("./UCI HAR Dataset/features.txt")
 
@@ -97,8 +97,9 @@ Merge the sets containing training and test measurements
 
 Set the variable/column names for Combined_Measurements.
 
-The 561 names given in Measurement_Names correspond to the 561 columns in 
-Combined_Measurements. This means that we have to turn the row values of the second column of Measurement_Names into the column names of Combined_Measurements.
+The 561 names given in Measurement_Names correspond to the 561 columns in Combined_Measurements. 
+This means that we have to turn the row values of the second column of Measurement_Names 
+into the column names of Combined_Measurements.
 
 
 Look at the column names of Measurement_Names
@@ -346,8 +347,8 @@ Replace the current variable names in Complete_Set with  descriptive variable na
 
 Cleaning the variable names from invalid and/or unnecessary symbols using gsub()
 
-names(Extract_Set) <- gsub("-", ".", names(Extract_Set))
-names(Extract_Set) <- gsub("[()]", "", names(Extract_Set))
+    names(Extract_Set) <- gsub("-", ".", names(Extract_Set))
+    names(Extract_Set) <- gsub("[()]", "", names(Extract_Set))
 
 
 ## 5. CREATE A SECOND INDEPENDENT TIDY DATASET WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT
@@ -382,8 +383,8 @@ The column names are pushed down into the first row of the dataset
 and the variable names are replaced with default names V1, V2, V3 etc.
 This makes the dataset untidy again. I therefore provide both options.
 
-   write.table(Average_Complete_Set_Tidy, file="TidyDataComplete2.txt", row.names=FALSE)
-   write.table(Average_Extract_Set_Tidy, file="TidyDataExtract2.txt", row.names=FALSE)
+    write.table(Average_Complete_Set_Tidy, file="TidyDataComplete2.txt", row.names=FALSE)
+    write.table(Average_Extract_Set_Tidy, file="TidyDataExtract2.txt", row.names=FALSE)
 
 
 Check whether everything was done correctly
