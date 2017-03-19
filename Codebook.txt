@@ -1,0 +1,127 @@
+Course: Coursera - Data Science Specialization
+Course project: Getting and Cleaning Data
+Course  participant: Mirjam Hachem
+
+CODEBOOK
+
+This is the codebook that belongs to the uploaded dataset contained
+in the file TidyDataExtract.txt
+
+Find the R script that creates this dataset here:
+Find the README file for the R script here: 
+
+PLEASE NOTE: 
+From the description of the assignment, it was not clear to me
+whether the the tasks 3 to 5 have to be executed to the dataset 
+created in 1 or the dataset extracted in 2. I therefore
+applied all the operations to both datasets. I therefore
+uploaded the dataset extracted in task two and stored the dataset created
+in task 1 in TidyDataComplete.txt which you can find in the same
+GitHub repository. 
+
+
+0. DESCRIPTION OF THE ORIGINAL DATASET
+
+The present data set is based on the "Human activity Recognition Using Smartphones Dataset". 
+
+Here follows a description of the original study copied from the README file of this dataset.
+
+Authors:
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Università degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+
+Experiments:
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
+
+For each record it is provided:
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
+
+The dataset includes the following files:
+- 'README.txt'
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+- 'features.txt': List of all features.
+- 'activity_labels.txt': Links the class labels with their activity name.
+- 'train/X_train.txt': Training set.
+- 'train/y_train.txt': Training labels.
+- 'test/X_test.txt': Test set.
+- 'test/y_test.txt': Test labels.
+
+
+1. DESCRIPTION OF THE PRESENT DATASET
+
+The dataset "TidyDataExctract" is the result of applying the following operations to the "Human activity Recognition Using Smartphones Dataset"
+	
+	1. Merging the trainig and the test set to create one dataset
+	2. Extracting the measurements of the mean and the standard deviation for 
+	   each measurement.
+	3. Replacing the numbers given for each activity in the merged set with
+	   descriptive activity names provided in the activity_labels.txt file.
+	4. Adjusting the variable names in the dataset to more descriptive variable
+	   names.
+	5. Creating a second independent tidy dataset with the average of
+	   each variable for each activity and each subject.
+
+The "TidyDataExtract" dataset therefore contains the values resulting 
+from calculating the mean for each variable for each activity and each
+subject.
+
+
+2. VARIABLE MEANINGS
+
+The variable names in the dataset "TidyDataExtract" are composites of the following components:
+
+X, Y, Z = denote 3-axial signals in the X, Y, and Z directions
+
+time = time of measurement
+frequency = frequency of measurement
+
+Body = body movement, appears dubble in some variables
+Gravity = acceleration of gravity
+Jerk = sudden movement acceleration
+Accelerometer = measurement of accelerometer
+Gyroscope = measurement of gyroscope
+Magnitude = magnitude of movement
+
+sd = standard deviation
+mean = mean
+mad = median absolute deviation
+max = largest value in array
+min = smallest value in array
+sma = signal magnitude area
+iqr = interquartile range
+
+
+The following components only appear in the dataset stored in TidyDataComplete.txt in addition to the components given above
+
+autoregressiveCoefficients = autoregressive coefficients with Burg order equal to 4
+maxIndex = index of the frequency componen with largest magnitude
+meanFreqency = weigted average of the frequency components to obtain a mean frequency
+intervalEnergy = energy of a frequency interval within the 64 bins of the FFT of each window
+energy = energy measure, sum of the squares divided by the number of values
+entropy = signal entropy
+correlation = correlation coefficient between the two signals
+skewness = skewness of the frequency domain signal
+kurtosis = kurtosis of the requency domain signal
+angle = angle between two vectors
+
+
+3. LICENSE: 
+
+The use of the dataset "Human activity Recognition Using Smartphones Dataset" must be acknowledged by referencing the following publication: 
+
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+The dataset "Human activity Recognition Using Smartphones Dataset" is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+
+Thank you for grading my assignment :-)
