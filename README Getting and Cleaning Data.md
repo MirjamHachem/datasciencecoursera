@@ -44,7 +44,7 @@ object name: Subjects_Training_Set
 
 
 Activity numbers of the training set:
-orgiginal file name: y_train.txt
+original file name: y_train.txt
 object name: Training_Activity_Numbers
 
     Training_Activity_Numbers <- read.table("./UCI HAR Dataset/train/y_train.txt")
