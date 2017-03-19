@@ -36,72 +36,70 @@ object name: Training_Measurements
     Training_Measurements <- read.table("./UCI HAR Dataset/train/X_train.txt")
 
 
-Subjects of the training set:
-original file name: subject_train.txt
-object name: Subjects_Training_Set
+Subjects of the training set:  
+original file name: subject_train.txt  
+object name: Subjects_Training_Set  
     
     Training_Subjects <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 
 
-Activity numbers of the training set:
-original file name: y_train.txt
-object name: Training_Activity_Numbers
+Activity numbers of the training set:  
+original file name: y_train.txt  
+object name: Training_Activity_Numbers  
 
     Training_Activity_Numbers <- read.table("./UCI HAR Dataset/train/y_train.txt")
 
 
-Measurements of the test set:
-original file name: X_test.txt
-object name: Test_Measurements
+Measurements of the test set:  
+original file name: X_test.txt  
+object name: Test_Measurements  
 
     Test_Measurements <- read.table("./UCI HAR Dataset/test/X_test.txt")
 
 
-Subjects of the test set:
-original file name: subject_test.txt 
-object name: Test_Subjects
+Subjects of the test set:  
+original file name: subject_test.txt   
+object name: Test_Subjects  
 
     Test_Subjects <- read.table("./UCI HAR Dataset/test/subject_test.txt")
 
 
-Import the activity numbers of the test set:
-original file name: y_test.txt
-object name: Test_Activity_Numbers
+Import the activity numbers of the test set:  
+original file name: y_test.txt  
+object name: Test_Activity_Numbers  
 
     Test_Activity_Numbers <- read.table("./UCI HAR Dataset/test/y_test.txt")
 
 
-List with pairings of activity numbers and activity names:
-original file name: activity_labels.txt
-object name: Activity_Names
+List with pairings of activity numbers and activity names:  
+original file name: activity_labels.txt  
+object name: Activity_Names  
 
     Activity_Names <- read.table("./UCI HAR Dataset/activity_labels.txt")
 
 
-List with parings of measurement numbers and measurement names:
-original file name: features.txt
-object name: Measurement_Names
+List with parings of measurement numbers and measurement names:  
+original file name: features.txt  
+object name: Measurement_Names  
 
     Measurement_Names <- read.table("./UCI HAR Dataset/features.txt")
 
 
 ## 1. MERGING THE TRAINING AND THE TEST SET TO CREATE ONE DATASET
 
-Merge the sets containing training and test measurements:
-using rbind() to attach the rows of the test set to the rows of the training set 
-object name: Combined_Measurements
+Merge the sets containing training and test measurements:  
+using rbind() to attach the rows of the test set to the rows of the training set   
+object name: Combined_Measurements  
 
     Combined_Measurements <- rbind(Training_Measurements, Test_Measurements)
 
 
-Set the variable/column names for Combined_Measurements.
-
-The 561 names given in Measurement_Names correspond to the 561 columns in Combined_Measurements. 
-This means that we have to turn the row values of the second column of Measurement_Names 
-into the column names of Combined_Measurements.
+Set the variable/column names for Combined_Measurements.  
+  
+The 561 names given in Measurement_Names correspond to the 561 columns in Combined_Measurements.This means that we have to turn the row values of the second column of Measurement_Names into the column names of Combined_Measurements.  
 
 
-Look at the column names of Measurement_Names
+Look at the column names of Measurement_Names  
 
     colnames(Measurement_Names)
 
@@ -111,9 +109,9 @@ Extract the row values in column V2 and set them as column names of Combined_Mea
     colnames(Combined_Measurements) = Measurement_Names$V2
 
 
-Merge the sets containing the training and test subjects:
-using rbind() to attach the rows of the test subjects set to the rows of the training set
-object name: Combined_Subjects
+Merge the sets containing the training and test subjects:  
+using rbind() to attach the rows of the test subjects set to the rows of the training set  
+object name: Combined_Subjects  
 
     Combined_Subjects <- rbind(Training_Subjects, Test_Subjects)
 
@@ -122,9 +120,9 @@ Set the variable/column name of Combined_Subjects:
     colnames(Combined_Subjects) = "Subjects"
 
 
-Merge the sets containing the training and test activity numbers:
-using rbind() to attach the rows of the set  with the test numbers to the rows of the set with the training numbers
-object name: Combined_Numbers
+Merge the sets containing the training and test activity numbers:  
+using rbind() to attach the rows of the set  with the test numbers to the rows of the set with the training numbers  
+object name: Combined_Numbers  
 
     Combined_Numbers <- rbind(Training_Activity_Numbers, Test_Activity_Numbers)
 
@@ -133,8 +131,8 @@ Set the variable/column name of Combined_Numbers:
     colnames(Combined_Numbers) = "ActivityNumber"
 
 
-Merge Combined_Measurements, Combined_Subjects, and Combined_Numbers to one data set:
-using cbind() to attach the sets
+Merge Combined_Measurements, Combined_Subjects, and Combined_Numbers to one data set:  
+using cbind() to attach the sets  
 
     Total_Set <- cbind(Combined_Numbers, Combined_Subjects, Combined_Measurements)
 
@@ -142,15 +140,10 @@ using cbind() to attach the sets
 ## 2. EXTRACT THE MEASUREMENTS ON THE MEAN AND THE STANDARD DEVIATION FOR EACH MEASUREMENT
 
 #### IMPORTANT: 
-The columns containing the mean of the 
-measurements have the string "mean()" in their 
-column name. There is also the string "Mean" 
-appearing in certain column names but these refer to
-other measurements and are therefore excluded from 
-the extraction.
+The columns containing the mean of the measurements have the string "mean()" in their column name. There is also the string "Mean" appearing in certain column names but these refer to other measurements and are therefore excluded from the extraction.
 
-Identify all column names containing the string "mean()":
-using grep() to search the column names
+Identify all column names containing the string "mean()":  
+using grep() to search the column names  
 
     Mean <- grep("mean()", names(Total_Set), value=TRUE)
 
@@ -160,7 +153,7 @@ Subset the identified columns:
     Mean_Set <- Total_Set[, Mean]
 
 
-Identify all column names containing the string "std()":
+Identify all column names containing the string "std()":  
 using grep() to search the column names
 
     SD <- grep("std()", names(Total_Set), value=TRUE)
@@ -201,8 +194,8 @@ Add the activity names to Total_Set by merging Total_Set # and Activity_Names ba
     Total_Set_With_Names <- merge(x = Total_Set, y = Activity_Names, by = "ActivityNumber")
 
 
-This operation attached the column with the activity names to the right of the data frame. For a better overview, we want this column to be the first column of the data frame. 
-using cbind() to move the column through subsetting and attaching:
+This operation attached the column with the activity names to the right of the data frame. For a better overview, we want this column to be the first column of the data frame.   
+using cbind() to move the column through subsetting and attaching:  
 
     Total_Set_With_Names <- cbind(Total_Set_With_Names[, 564], Total_Set_With_Names[, -(564)])
 
@@ -251,37 +244,37 @@ Look at the variable names of Complete_Set to see what we need to adjust:
 
 #### Meaning of partial variable names that can be made more descriptive
 
-t = time of measurement
-f = frequency of measurement
-Body = body movement, appears dubble in some variables
-Gravity = acceleration of gravity
-Acc = measurement of accelerometer
-Gyro = measurement of gyroscope
-Mag = magnitude of movement
-std = standard deviation
-sma = signal magnitude area
-iqr = interquartile range
-arCoeff = autoregressive coefficients with Burg order equal to 4
-maxInds = index of the frequency componen with largest magnitude
-meanFreq = weigted average of the frequence components to obtain a mean frequency
-bandsEnergy = energy of a frequency interval within the 64 bins of the FFT of each window
+t = time of measurement  
+f = frequency of measurement  
+Body = body movement, appears dubble in some variables  
+Gravity = acceleration of gravity  
+Acc = measurement of accelerometer  
+Gyro = measurement of gyroscope  
+Mag = magnitude of movement  
+std = standard deviation  
+sma = signal magnitude area  
+iqr = interquartile range  
+arCoeff = autoregressive coefficients with Burg order equal to 4  
+maxInds = index of the frequency componen with largest magnitude  
+meanFreq = weigted average of the frequence components to obtain a mean frequency  
+bandsEnergy = energy of a frequency interval within the 64 bins of the FFT of each window  
 
 
 #### Meaning of partial variable names that need not be changed
 
-Jerk = sudden movement acceleration
-mean = mean
-mad = median absolute deviation
-max = largest value in array
-min - smallest value in array
-sma = signal magnitude area
-iqr = interquartile range
-energy = energy measure, sum of the squares divided by the number of values
-entropy = signal entropy
-correlation = correlation coefficient between the two signals
-skewness = skewness of the frequency domain signal
-kurtosis = kurtosis of the requency domain signal
-angle = angle between two vectors
+Jerk = sudden movement acceleration  
+mean = mean  
+mad = median absolute deviation  
+max = largest value in array  
+min - smallest value in array  
+sma = signal magnitude area  
+iqr = interquartile range  
+energy = energy measure, sum of the squares divided by the number of values  
+entropy = signal entropy  
+correlation = correlation coefficient between the two signals  
+skewness = skewness of the frequency domain signal  
+kurtosis = kurtosis of the requency domain signal  
+angle = angle between two vectors  
 
 #### ADJUSTING VARIABLE NAMES
 
