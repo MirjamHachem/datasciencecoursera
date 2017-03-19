@@ -189,7 +189,7 @@ Set the column names Activity_Names (V1 and V2) to match the column names in Tot
     colnames(Activity_Names) <- c("ActivityNumber", "ActivityName")
 
 
-Add the activity names to Total_Set by merging Total_Set # and Activity_Names based on the variable ActivityNumber:
+Add the activity names to Total_Set by merging Total_Set and Activity_Names based on the variable ActivityNumber:
 
     Total_Set_With_Names <- merge(x = Total_Set, y = Activity_Names, by = "ActivityNumber")
 
