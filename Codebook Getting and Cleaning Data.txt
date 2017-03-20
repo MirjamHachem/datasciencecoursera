@@ -133,6 +133,7 @@ skewness = skewness of the frequency domain signal
 kurtosis = kurtosis of the requency domain signal
 angle = angle between two vectors
 
+
 3. LIST OF VARIABLES
 
 Below follows a list of all the 82 variable names in "TidyDataExtract":
