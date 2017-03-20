@@ -84,7 +84,8 @@ The dataset "TidyDataExctract" is the result of applying the following operation
 	   descriptive activity names provided in the activity_labels.txt file.
 	4. Adjusting the variable names in the dataset to more descriptive variable
 	   names.
-	5. Creating a second independent tidy dataset with the average of
+	5. Cleaning the variable names from invalid and/or unnecessary symbols
+	6. Creating a second independent tidy dataset with the average of
 	   each variable for each activity and each subject.
 
 The "TidyDataExtract" dataset therefore contains the values resulting 
@@ -132,8 +133,95 @@ skewness = skewness of the frequency domain signal
 kurtosis = kurtosis of the requency domain signal
 angle = angle between two vectors
 
+3. LIST OF VARIABLES
 
-3. LICENSE: 
+Below follows a list of all the 82 variable names in "TidyDataExtract":
+
+ [1] "Subjects"                                        
+ [2] "ActivityName"                                    
+ [3] "ActivityNumber"                                  
+ [4] "timeBodyAccelerometer.mean.X"                    
+ [5] "timeBodyAccelerometer.mean.Y"                    
+ [6] "timeBodyAccelerometer.mean.Z"                    
+ [7] "timeGravityAccelerometer.mean.X"                 
+ [8] "timeGravityAccelerometer.mean.Y"                 
+ [9] "timeGravityAccelerometer.mean.Z"                 
+[10] "timeBodyAccelerometerJerk.mean.X"                
+[11] "timeBodyAccelerometerJerk.mean.Y"                
+[12] "timeBodyAccelerometerJerk.mean.Z"                
+[13] "timeBodyGyroscope.mean.X"                        
+[14] "timeBodyGyroscope.mean.Y"                        
+[15] "timeBodyGyroscope.mean.Z"                        
+[16] "timeBodyGyroscopeJerk.mean.X"                    
+[17] "timeBodyGyroscopeJerk.mean.Y"                    
+[18] "timeBodyGyroscopeJerk.mean.Z"                    
+[19] "timeBodyAccelerometerMagnitude.mean"             
+[20] "timeGravityAccelerometerMagnitude.mean"          
+[21] "timeBodyAccelerometerJerkMagnitude.mean"         
+[22] "timeBodyGyroscopeMagnitude.mean"                 
+[23] "timeBodyGyroscopeJerkMagnitude.mean"             
+[24] "frequencyBodyAccelerometer.mean.X"               
+[25] "frequencyBodyAccelerometer.mean.Y"               
+[26] "frequencyBodyAccelerometer.mean.Z"               
+[27] "frequencyBodyAccelerometer.meanFreq.X"           
+[28] "frequencyBodyAccelerometer.meanFreq.Y"           
+[29] "frequencyBodyAccelerometer.meanFreq.Z"           
+[30] "frequencyBodyAccelerometerJerk.mean.X"           
+[31] "frequencyBodyAccelerometerJerk.mean.Y"           
+[32] "frequencyBodyAccelerometerJerk.mean.Z"           
+[33] "frequencyBodyAccelerometerJerk.meanFreq.X"       
+[34] "frequencyBodyAccelerometerJerk.meanFreq.Y"       
+[35] "frequencyBodyAccelerometerJerk.meanFreq.Z"       
+[36] "frequencyBodyGyroscope.mean.X"                   
+[37] "frequencyBodyGyroscope.mean.Y"                   
+[38] "frequencyBodyGyroscope.mean.Z"                   
+[39] "frequencyBodyGyroscope.meanFreq.X"               
+[40] "frequencyBodyGyroscope.meanFreq.Y"               
+[41] "frequencyBodyGyroscope.meanFreq.Z"               
+[42] "frequencyBodyAccelerometerMagnitude.mean"        
+[43] "frequencyBodyAccelerometerMagnitude.meanFreq"    
+[44] "frequencyBodyAccelerometerJerkMagnitude.mean"    
+[45] "frequencyBodyAccelerometerJerkMagnitude.meanFreq"
+[46] "frequencyBodyGyroscopeMagnitude.mean"            
+[47] "frequencyBodyGyroscopeMagnitude.meanFreq"        
+[48] "frequencyBodyGyroscopeJerkMagnitude.mean"        
+[49] "frequencyBodyGyroscopeJerkMagnitude.meanFreq"    
+[50] "timeBodyAccelerometer.sd.X"                      
+[51] "timeBodyAccelerometer.sd.Y"                      
+[52] "timeBodyAccelerometer.sd.Z"                      
+[53] "timeGravityAccelerometer.sd.X"                   
+[54] "timeGravityAccelerometer.sd.Y"                   
+[55] "timeGravityAccelerometer.sd.Z"                   
+[56] "timeBodyAccelerometerJerk.sd.X"                  
+[57] "timeBodyAccelerometerJerk.sd.Y"                  
+[58] "timeBodyAccelerometerJerk.sd.Z"                  
+[59] "timeBodyGyroscope.sd.X"                          
+[60] "timeBodyGyroscope.sd.Y"                          
+[61] "timeBodyGyroscope.sd.Z"                          
+[62] "timeBodyGyroscopeJerk.sd.X"                      
+[63] "timeBodyGyroscopeJerk.sd.Y"                      
+[64] "timeBodyGyroscopeJerk.sd.Z"                      
+[65] "timeBodyAccelerometerMagnitude.sd"               
+[66] "timeGravityAccelerometerMagnitude.sd"            
+[67] "timeBodyAccelerometerJerkMagnitude.sd"           
+[68] "timeBodyGyroscopeMagnitude.sd"                   
+[69] "timeBodyGyroscopeJerkMagnitude.sd"               
+[70] "frequencyBodyAccelerometer.sd.X"                 
+[71] "frequencyBodyAccelerometer.sd.Y"                 
+[72] "frequencyBodyAccelerometer.sd.Z"                 
+[73] "frequencyBodyAccelerometerJerk.sd.X"             
+[74] "frequencyBodyAccelerometerJerk.sd.Y"             
+[75] "frequencyBodyAccelerometerJerk.sd.Z"             
+[76] "frequencyBodyGyroscope.sd.X"                     
+[77] "frequencyBodyGyroscope.sd.Y"                     
+[78] "frequencyBodyGyroscope.sd.Z"                     
+[79] "frequencyBodyAccelerometerMagnitude.sd"          
+[80] "frequencyBodyAccelerometerJerkMagnitude.sd"      
+[81] "frequencyBodyGyroscopeMagnitude.sd"              
+[82] "frequencyBodyGyroscopeJerkMagnitude.sd"
+
+
+4. LICENSE: 
 
 The use of the dataset "Human activity Recognition Using Smartphones Dataset" must be 
 acknowledged by referencing the following publication: 
