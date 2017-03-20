@@ -10,6 +10,13 @@
 # Find the codebook here: 
 # https://github.com/MirjamHachem/datasciencecoursera/blob/master/Codebook.txt
 
+# Download the dataset here:
+# https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+#Follow these instructions:
+# Unzip the file on your computer so that the name of the folder 
+# is "UCI HAR Dataset". Put the folder in the working 
+# directory of your R environment.
 
 # PLEASE NOTE:
 # From the description of the assignment, it was not clear to me
@@ -31,30 +38,39 @@ Measurement_Names <- read.table("./UCI HAR Dataset/features.txt")
 
 # 1. MERGING THE TRAINING AND THE TEST SET TO CREATE ONE DATASET
 
+# Combine training and test measurements
 Combined_Measurements <- rbind(Training_Measurements, Test_Measurements)
 colnames(Combined_Measurements) = Measurement_Names$V2
 
+# Combine training and test subjects
 Combined_Subjects <- rbind(Training_Subjects, Test_Subjects)
 colnames(Combined_Subjects) = "Subjects"
 
+# Combine training and test activity numbers
 Combined_Numbers <- rbind(Training_Activity_Numbers, Test_Activity_Numbers)
 colnames(Combined_Numbers) = "ActivityNumber"
 
+# Combine all of the three above
 Total_Set <- cbind(Combined_Numbers, Combined_Subjects, Combined_Measurements)
 
 
 # 2. EXTRACT THE MEASUREMENTS ON THE MEAN AND THE STANDARD DEVIATION FOR EACH MEASUREMENT
 
+# Identify and extract columns containing the string "mean()"
 Mean <- grep("mean()", names(Total_Set), value=TRUE)
 Mean_Set <- Total_Set[, Mean]
 
+# Identify and extract columns containing the string "std()"
 SD <- grep("std()", names(Total_Set), value=TRUE)
 SD_Set <- Total_Set[, SD]
 
+# Combine the extracted columns
 Combined_Mean_SD <- cbind(Mean_Set, SD_Set)
 
+# Extract columns containing subjects and subject activity
 Subset_Subject_Activity <- Total_Set[, 1:2]
 
+# Add these columns to the set containing the mean and SD measurements
 Combined_Mean_SD_Subject_Activity <- cbind(Subset_Subject_Activity, Combined_Mean_SD)
 
 
