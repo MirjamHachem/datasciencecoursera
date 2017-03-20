@@ -181,7 +181,7 @@ Attach activity and subject numbers to the combined set:
 
 ## 3. USE DESCRIPTIVE ACTIVITY NAMES TO NAME THE ACTIVITIES IN THE DATA SET
 
-In Total_Set, the activity numbers are stored in the second column. The pairings of activity numbers and activity names are given in Activity_Names. We nowhave to replace the activity numbers in Total_Set with the names given in Activity_Names.
+In Total_Set, the activity numbers are stored in the second column. The pairings of activity numbers and activity names are given in Activity_Names. We now have to replace the activity numbers in Total_Set with the names given in Activity_Names.
 
 
 Set the column names Activity_Names (V1 and V2) to match the column names in Total_Set:
@@ -232,7 +232,7 @@ Unfortunately, this code cannot be applied to the above datasets at this point f
 
 BEFORE WE PROCEED:
 
-Rename the objcets Total_Set_With_Names and Combined_Mean_SD_With_Names into shorter object names for better readabilit:
+Rename the objcets Total_Set_With_Names and Combined_Mean_SD_With_Names into shorter object names for better readability:
 
     Complete_Set <- Total_Set_With_Names
     Extract_Set <- Combined_Mean_SD_With_Names
